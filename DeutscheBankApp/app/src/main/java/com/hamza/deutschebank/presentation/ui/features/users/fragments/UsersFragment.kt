@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.google.gson.Gson
-import com.hamza.deutschebank.R
 import com.hamza.deutschebank.data.users.domain.Users
 import com.hamza.deutschebank.databinding.FragmentUsersBinding
 import com.hamza.deutschebank.presentation.ui.features.users.adapters.UsersAdapter
@@ -71,15 +69,9 @@ class UsersFragment : Fragment(), UserOnClick {
     }
 
     override fun onClick(position: Int) {
-     //   viewModel.setUser(usersList[position])
-
         val user = usersList[position]
-        val gson = Gson()
-        val userString = gson.toJson(user)
-
-        findNavController().navigate(R.id.action_usersFragment_to_userDetailFragment, Bundle().apply {
-            putString("user", userString)
-        })
+        val action = UsersFragmentDirections.actionUsersFragmentToUserDetailFragment(user)
+        findNavController().navigate(action)
     }
 
 }

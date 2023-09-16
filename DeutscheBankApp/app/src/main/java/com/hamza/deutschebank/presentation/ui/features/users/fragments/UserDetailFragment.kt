@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.hamza.deutschebank.BR
 import com.hamza.deutschebank.data.users.domain.Users
@@ -24,8 +25,13 @@ class UserDetailFragment : Fragment() {
         // Inflate the layout for this fragment
         binding =  FragmentUserDetailBinding.inflate(inflater, container, false)
         binding.setVariable(BR.model,args.user)
-
+        init()
         return binding.root
+    }
+    fun init(){
+        binding.layHeader.btnBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
 }

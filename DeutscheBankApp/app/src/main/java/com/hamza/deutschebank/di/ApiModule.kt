@@ -60,15 +60,6 @@ object ApiModule {
             .addInterceptor(headerInterceptor)
             .build()
 
-    /*@Singleton
-    @Provides
-    @LoginRetrofitInstance
-    fun provideLoginRetrofitInstance(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
-        .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl(BASE_URL)
-        .client(okHttpClient)
-        .build()
-*/
     @Singleton
     @Provides
     fun provideAppRetrofitInstance(okHttpClient: OkHttpClient, moshi: Moshi): Retrofit = Retrofit.Builder()
@@ -81,12 +72,6 @@ object ApiModule {
     @Provides
     fun provideApiService(retrofit: Retrofit): UsersApiService =
         retrofit.create(UsersApiService::class.java)
-
-    /* @Singleton
-     @Provides
-     @LoginApiService
-     fun provideLoginApiService(@LoginRetrofitInstance retrofit: Retrofit): ApiService =
-         retrofit.create(ApiService::class.java)*/
 
     @Provides
     fun provideUserService(api: UsersApiService): UserService =

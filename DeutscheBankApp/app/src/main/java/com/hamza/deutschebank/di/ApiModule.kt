@@ -89,6 +89,6 @@ object ApiModule {
          retrofit.create(ApiService::class.java)*/
 
     @Provides
-    fun provideFeedService(api: UsersApiService): UserService =
+    fun provideUserService(api: UsersApiService): UserService =
         UserServiceImpl(api)
 }

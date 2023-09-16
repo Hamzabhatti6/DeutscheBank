@@ -12,23 +12,17 @@
     android:padding="@dimen/dimen_10"
     tools:context=".presentation.ui.features.users.fragments.UserDetailFragment">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_heading"
-        style="@style/headingH1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_16"
-        android:text="@string/user_detail"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+    <include
+        android:id="@+id/lay_header"
+        layout="@layout/lay_header"/>
+
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_name_heading"
         style="@style/text_bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tv_heading"
+        app:layout_constraintTop_toBottomOf="@+id/lay_header"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="@dimen/dimen_50"
         android:text="@string/name" />
